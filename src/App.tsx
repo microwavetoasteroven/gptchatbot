@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MessagesDisplay from "./components/MessagesDisplay";
+import CodeDisplay from "./components/CodeDisplay";
 
-function App() {
+const App = () => {
+  const getQuery = async () => {
+    try {
+      const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          message: "create a table" }),
+      };
+      const response = await fetch(`http://localhost:8000/completions`, options)
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <MessagesDisplay />
+      <input/>
+      <CodeDisplay />
+      <div className="button-container">
+        <button id="get-query" onClick={getQuery}>Get Query!</button>
+        <button id="clear-chat">Clear Chat</button>
+      </div>  
     </div>
   );
 }
