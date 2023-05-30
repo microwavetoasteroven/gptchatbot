@@ -21,7 +21,7 @@ p, input {
     height: 80vh;
     width: 80vw;
     background-color: rgb(255, 255, 255);
-    border-radius: 100px;
+    border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 4px;
     display: flex;
     justify-content: centre;
@@ -76,6 +76,18 @@ p, input {
     border-radius: 50%;
     margin: 4px;
     background-color: rgb(38, 201, 64);
+}
+
+.code-output{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(34, 34, 34);
+    padding: 5px;
+    overflow-y: scroll;;
+}
+
+.code-output p {
+    color: rgb(255, 196, 0);
 }
 
 .messages-display {
